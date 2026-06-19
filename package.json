@@ -1,7 +1,7 @@
 {
   "name": "Void_Syndicate",
   "version": "2.1.0",
-  "description": "🌌 Void Syndicate Bot - A high-performance, multi-purpose Discord bot for moderation, automation, and community management with real-time server integration."
+  "description": "🌌 Void Syndicate Bot - A high-performance, multi-purpose Discord bot for moderation, automation, and community management with real-time server integration.",
   "main": "src/app.js",
   "type": "module",
   "scripts": {
