@@ -54,6 +54,30 @@ export const KEYWORD_REPLIES = {
   'بابا': 'بابا مين؟ 😄',
   'ماما': 'ماما مين؟ 😄',
   'تيتا': 'تيتا مين؟ 😄',
+  // ================================================================
+  // IP / Server Address
+  // ================================================================
+ 'ip': 'voidsyndicate.mineserver.uno',
+ 'IP': 'voidsyndicate.mineserver.uno',
+ 'Ip': 'voidsyndicate.mineserver.uno',
+ 'iP': 'voidsyndicate.mineserver.uno',
+ 'اى بى': 'voidsyndicate.mineserver.uno',
+ 'اي بي': 'voidsyndicate.mineserver.uno',
+ 'أي بي': 'voidsyndicate.mineserver.uno',
+ 'آي بي': 'voidsyndicate.mineserver.uno',
+ 'السيرفر': 'voidsyndicate.mineserver.uno',
+ 'سيرفر': 'voidsyndicate.mineserver.uno',
+ 'server': 'voidsyndicate.mineserver.uno',
+ 'Server': 'voidsyndicate.mineserver.uno',
+ 'SERVER': 'voidsyndicate.mineserver.uno',
+ 'مين سيرفر': 'voidsyndicate.mineserver.uno',
+ 'مينكريفت': 'voidsyndicate.mineserver.uno',
+ 'ماين كرافت': 'voidsyndicate.mineserver.uno',
+ 'ماينكرافت': 'voidsyndicate.mineserver.uno',
+ 'minecraft': 'voidsyndicate.mineserver.uno',
+ 'Minecraft': 'voidsyndicate.mineserver.uno',
+ 'MC': 'voidsyndicate.mineserver.uno',
+ 'mc': 'voidsyndicate.mineserver.uno',
 
   // ================================================================
   // 2. السؤال عن الحال (عربي) (50)
