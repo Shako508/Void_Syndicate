@@ -18,9 +18,39 @@ import {
   recordCorrectCount,
 } from '../services/countingGameService.js';
 
+// =====================================================
+// 🤖 AutoResponder - استيراد الردود
+// =====================================================
+import { KEYWORD_REPLIES, AUTO_REPLY_MESSAGE } from '../config/autoResponses.js';
+
 const MESSAGE_XP_RATE_LIMIT_ATTEMPTS = 12;
 const MESSAGE_XP_RATE_LIMIT_WINDOW_MS = 10000;
 
+// =====================================================
+// 🤖 دالة الـ AutoResponder
+// =====================================================
+async function handleAutoResponder(message) {
+  if (message.author.bot) return false;
+  if (!message.content) return false;
+
+  const content = message.content.toLowerCase().trim();
+
+  // ١- الكلمات المفتاحية
+  for (const [key, reply] of Object.entries(KEYWORD_REPLIES)) {
+    if (content.includes(key)) {
+      await message.reply(reply).catch(() => {});
+      return true;
+    }
+  }
+
+  // ٢- الرد العام لو مفيش كلمة مفتاحية
+  await message.reply(AUTO_REPLY_MESSAGE).catch(() => {});
+  return true;
+}
+
+// =====================================================
+// الحدث الرئيسي
+// =====================================================
 export default {
   name: Events.MessageCreate,
   async execute(message, client) {
@@ -29,19 +59,30 @@ export default {
 
       logger.debug(`Message received from ${message.author.tag}: ${message.content}`);
 
+      // 🤖 AutoResponder (أولوية قصوى)
+      const autoReplied = await handleAutoResponder(message);
+      if (autoReplied) return;
+
+      // 🎯 Counting Game
       const countingProcessed = await handleCountingGame(message, client);
       if (countingProcessed) {
         return;
       }
 
+      // 📝 Prefix Commands
       await handlePrefixCommand(message, client);
 
+      // 📊 Leveling System
       await handleLeveling(message, client);
     } catch (error) {
       logger.error('Error in messageCreate event:', error);
     }
   }
 };
+
+// =====================================================
+// باقي الدوال (نفس الكود القديم)
+// =====================================================
 
 async function handlePrefixCommand(message, client) {
   try {
